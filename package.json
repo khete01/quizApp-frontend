@@ -1,0 +1,24 @@
+{
+  "name": "login",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/style": "^0.8.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.3",
+    "axios": "^1.6.5",
+    "material": "^0.7.9",
+    "motion": "^10.16.4",
+    "mui": "^0.0.1",
+    "next": "14.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18"
+  }
+}
