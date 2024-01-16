@@ -1,10 +1,34 @@
 import { useRouter } from "next/router";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Navbar from "./components/navbar";
-import { Fact } from "./components/Fact";
+import Navbar from "../components/navbar";
+import { Fact } from "../components/Fact";
 
-export default function login({ fact }) {
+const styles = {
+  container: {
+    width: "100vw",
+    height: "100vh",
+  },
+  text: {
+    color: "black",
+  },
+  fact: {
+    width: "80vw",
+    border: "1px solid black",
+    borderRadius: "20px",
+  },
+  content: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "50px",
+    display: "grid",
+    gridTemplateColumns: "auto",
+    padding: "60px",
+  },
+};
+
+function HomePage({ fact }) {
   const [userData, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -45,26 +69,4 @@ export default function login({ fact }) {
   );
 }
 
-const styles = {
-  container: {
-    width: "100vw",
-    height: "100vh",
-  },
-  text: {
-    color: "black",
-  },
-  fact: {
-    width: "80vw",
-    border: "1px solid black",
-    borderRadius: "20px",
-  },
-  content: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: "50px",
-    display: "grid",
-    gridTemplateColumns: "auto",
-    padding: "60px",
-  },
-};
+export default HomePage;

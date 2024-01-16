@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 
-export default function login() {
+function Login() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -189,3 +189,5 @@ const styles = {
     color: "red",
   },
 };
+
+export default Login;

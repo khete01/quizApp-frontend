@@ -1,7 +1,85 @@
 import { useState } from "react";
 import axios from "axios";
 import Router, { useRouter } from "next/router";
-export default function login() {
+
+const styles = {
+  container: {
+    width: "100vw",
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  box: {
+    width: "400px",
+    height: "600px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "",
+    borderRadius: "20px",
+    boxShadow: "5px 5px 5px 10px black",
+  },
+  background: {
+    position: "absolute",
+    zIndex: "-1",
+    width: "100vw",
+    height: "100vh",
+  },
+
+  loginbox: {
+    width: "300px",
+    width: "300px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  inp: {
+    height: "25px",
+    width: "250px",
+    borderRadius: "5px",
+    border: "1px solid",
+    backgroundColor: "black",
+    color: "white",
+  },
+  butdiv: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttons: {
+    width: "100px",
+    height: "20px",
+    borderRadius: "10px",
+    backgroundColor: "black",
+    color: "white",
+    backgroundColor: "black",
+  },
+  label: {
+    color: "white",
+  },
+  smallbox: {
+    width: "200px",
+    height: "50px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  back: {
+    width: "100px",
+    height: "20px",
+    borderRadius: "10px",
+    backgroundColor: "grey",
+    color: "white",
+  },
+  error: {
+    color: "blue",
+  },
+};
+
+function SignUp() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -208,79 +286,4 @@ export default function login() {
   );
 }
 
-const styles = {
-  container: {
-    width: "100vw",
-    height: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  box: {
-    width: "400px",
-    height: "600px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "",
-    borderRadius: "20px",
-    boxShadow: "5px 5px 5px 10px black",
-  },
-  background: {
-    position: "absolute",
-    zIndex: "-1",
-    width: "100vw",
-    height: "100vh",
-  },
-
-  loginbox: {
-    width: "300px",
-    width: "300px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  inp: {
-    height: "25px",
-    width: "250px",
-    borderRadius: "5px",
-    border: "1px solid",
-    backgroundColor: "black",
-    color: "white",
-  },
-  butdiv: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  buttons: {
-    width: "100px",
-    height: "20px",
-    borderRadius: "10px",
-    backgroundColor: "black",
-    color: "white",
-    backgroundColor: "black",
-  },
-  label: {
-    color: "white",
-  },
-  smallbox: {
-    width: "200px",
-    height: "50px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  back: {
-    width: "100px",
-    height: "20px",
-    borderRadius: "10px",
-    backgroundColor: "grey",
-    color: "white",
-  },
-  error: {
-    color: "blue",
-  },
-};
+export default SignUp;

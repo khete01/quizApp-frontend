@@ -1,12 +1,12 @@
 import Link from "next/link";
-import Navbar from "../components/navbar";
+import Navbar from "../../components/navbar";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Fact } from "../components/Fact";
-import { Edit } from "../components/edit";
-import DeleteModal from "../components/deleteModal";
+import { Fact } from "../../components/Fact";
+import { Edit } from "../../components/edit";
+import DeleteModal from "../../components/deleteModal";
 
-export default function MyFacts(factId) {
+function MyFacts(factId) {
   const [loading, setLoading] = useState(false);
   const [factData, setFactData] = useState([]);
 
@@ -89,3 +89,5 @@ const styles = {
     gap: "10px",
   },
 };
+
+export default MyFacts;
