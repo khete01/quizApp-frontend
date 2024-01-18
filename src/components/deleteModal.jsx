@@ -1,18 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Modal from "@mui/material/Modal";
 import axios from "axios";
 
-const DeleteModal = ({ factId }) => {
+const DeleteModal = ({ factId, onDelete }) => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const deleteFact = async () => {
-    await axios.delete(
-      `https://quizapp-backend-87e5.onrender.com/delete/${factId}`
-    );
-    handleClose();
+    try {
+      await axios.delete(
+        `https://quizapp-backend-87e5.onrender.com/delete/${factId}`
+      );
+      onDelete(factId);
+    } catch (error) {
+      console.error("Error deleting fact:", error);
+    } finally {
+      handleClose();
+    }
   };
 
   return (

@@ -24,7 +24,7 @@ const styles = {
     gap: "50px",
     display: "grid",
     gridTemplateColumns: "auto",
-    padding: "60px",
+    padding: "40px",
   },
 };
 
@@ -33,6 +33,7 @@ function HomePage({ fact }) {
   const [loading, setLoading] = useState(false);
 
   const router = useRouter();
+
   useEffect(() => {
     const isUserLoggedIn = () => {
       const user = localStorage.getItem("user");
@@ -45,9 +46,16 @@ function HomePage({ fact }) {
       const response = await axios.get(
         "https://quizapp-backend-87e5.onrender.com/facts"
       );
-      setData(response.data);
+
+      const sortedData = response.data.sort(
+        (a, b) => b.likes.length - a.likes.length
+      );
+      setData(sortedData);
+      setLoading(false);
     };
+
     isUserLoggedIn();
+    setLoading(true);
     fetchElement();
   }, []);
 
@@ -59,7 +67,7 @@ function HomePage({ fact }) {
       ) : (
         <div style={styles.content}>
           {userData.map((fact) => (
-            <div style={styles.fact}>
+            <div key={fact._id} style={styles.fact}>
               <Fact fact={fact} />
             </div>
           ))}

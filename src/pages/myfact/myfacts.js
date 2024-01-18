@@ -18,8 +18,11 @@ function MyFacts(factId) {
         const response = await axios.get(
           `https://quizapp-backend-87e5.onrender.com/facts/${userId}`
         );
+        const sortedData = response.data.sort(
+          (a, b) => b.likes.length - a.likes.length
+        );
         console.log(response.data);
-        setFactData(response.data);
+        setFactData(sortedData);
       } catch (error) {
         console.error(error);
       } finally {
@@ -38,6 +41,12 @@ function MyFacts(factId) {
     );
   };
 
+  const handleDelete = (deletedFactId) => {
+    setFactData((prevFact) =>
+      prevFact.filter((fact) => fact._id !== deletedFactId)
+    );
+  };
+
   return (
     <div style={styles.container}>
       <Navbar />
@@ -50,8 +59,7 @@ function MyFacts(factId) {
               <Fact fact={fact} factId={fact._id} />
               <div style={styles.editDiv}>
                 <Edit factId={fact._id} edit={handleEdit} />
-                {/* <DeleteFact factId={fact._id} /> */}
-                <DeleteModal factId={fact._id} />
+                <DeleteModal factId={fact._id} onDelete={handleDelete} />
               </div>
             </div>
           ))

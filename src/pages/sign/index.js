@@ -173,18 +173,6 @@ function SignUp() {
     }
   };
 
-  // const createUser = async (email, password) => {
-  //   console.log(email, password);
-  //   const res = await axios.post("http://localhost:1001/sign", {
-  //     email: email,
-  //     password: password,
-  //   });
-
-  //   if (res.status === 200) {
-  //     alert(res.data);
-  //   }
-  // };
-
   const change = () => {
     router.replace("/");
   };
