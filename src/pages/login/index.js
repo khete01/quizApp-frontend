@@ -73,6 +73,7 @@ function Login() {
               }}
             >
               <div>
+                <h3 style={styles.text}>QUIZY</h3>
                 <h3 style={styles.text}>WELCOME BACK</h3>
                 <p style={styles.text}>log in to continue </p>
               </div>

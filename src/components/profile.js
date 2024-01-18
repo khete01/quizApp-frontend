@@ -39,16 +39,14 @@ export function Profile() {
 
   return (
     <div style={styles.sidebar}>
-      <p style={style.text}>{userId}</p>
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        userData.map((el) => (
-          <div style={style.textDiv}>
-            <p style={style.text}>{el.username}</p>
-          </div>
-        ))
-      )}
+      <div style={style.textDiv}>
+        <p style={style.text}>{userId}</p>
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          userData.map((el) => <p style={style.text}>{el.username}</p>)
+        )}
+      </div>
     </div>
   );
 }
@@ -63,6 +61,7 @@ const styles = {
     boxSizing: "border-box",
     padding: "20px 30px",
     background: "white",
+    display: "flex",
   },
   button: {
     color: "black",
@@ -70,5 +69,5 @@ const styles = {
     height: "30px",
   },
   text: {},
-  textDiv: {},
+  textDiv: { display: "flex", justifyContent: "center", alignItems: "center" },
 };
