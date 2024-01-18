@@ -19,7 +19,7 @@ export function Fact({ fact }) {
     setDisliked(fact.dislikes.includes(userId));
   }, [fact, userId]);
 
-  const updateLikes = async () => {
+  const like = async () => {
     if (!liked) {
       try {
         await axios.post(
@@ -27,6 +27,7 @@ export function Fact({ fact }) {
         );
         setLikesCount(likesCount + 1);
         setLiked(true);
+
         if (disliked) {
           setDislikesCount(dislikesCount - 1);
           setDisliked(false);
@@ -37,7 +38,7 @@ export function Fact({ fact }) {
     }
   };
 
-  const updateDislikes = async () => {
+  const dislikes = async () => {
     if (!disliked) {
       try {
         await axios.post(
@@ -45,6 +46,7 @@ export function Fact({ fact }) {
         );
         setDislikesCount(dislikesCount + 1);
         setDisliked(true);
+
         if (liked) {
           setLikesCount(likesCount - 1);
           setLiked(false);
@@ -66,15 +68,11 @@ export function Fact({ fact }) {
         <p style={styles.text}>{fact.text}</p>
       </div>
       <div style={styles.reactDiv}>
-        <button style={styles.like} onClick={updateLikes} disabled={liked}>
+        <button style={styles.like} onClick={like} disabled={liked}>
           <img src="/like.png" />
           <p style={styles.text}>{likesCount}</p>
         </button>
-        <button
-          style={styles.like}
-          onClick={updateDislikes}
-          disabled={disliked}
-        >
+        <button style={styles.like} onClick={dislikes} disabled={disliked}>
           <img src="/dislike.png" />
           <p style={styles.text}>{dislikesCount}</p>
         </button>

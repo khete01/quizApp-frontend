@@ -5,20 +5,28 @@ import { style } from "motion";
 export function Profile() {
   const [loading, setLoading] = useState(false);
   const [userData, setUserData] = useState([]);
-
   const userId = localStorage.getItem("user");
+
   useEffect(() => {
     setLoading(true);
 
     const getUser = async () => {
       try {
-        await axios
-          .get("https://quizapp-backend-87e5.onrender.com/user", {
-            userId,
-          })
-          .then((res) => {
-            setUserData(res.data);
-          });
+        const response = await axios.get(
+          "https://quizapp-backend-87e5.onrender.com/user",
+          {
+            params: {
+              userId,
+            },
+          }
+        );
+
+        if (Array.isArray(response.data)) {
+          setUserData(response.data);
+          console.log(response.data);
+        } else {
+          setUserData([response.data]);
+        }
       } catch (err) {
         console.log(err);
       } finally {
@@ -27,7 +35,7 @@ export function Profile() {
     };
 
     getUser();
-  }, []);
+  }, [userId]);
 
   return (
     <div style={styles.sidebar}>
